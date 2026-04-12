@@ -41,9 +41,9 @@ class RankingConfig:
 class DownloadConfig:
     timeout: float = 4  # Timeout for requests
     retry_times: int = 10  # Retry times for requests
-    fail_delay: float = 1  # Waiting time (s) after failure
+    fail_delay: float = 0.5  # Waiting time (s) after failure
     store_path: str = "images"  # Image save path
     with_tag: bool = True  # Whether to download tags to a separate json file
     url_only: bool = False  # Only download artwork urls
-    num_threads: int = 16  # Number of parallel threads
-    thread_delay: float = 1  # Waiting time (s) after thread start
+    num_threads: int = 32  # Number of parallel download threads
+    thread_delay: float = 0.1  # Delay (s) between worker startup slots

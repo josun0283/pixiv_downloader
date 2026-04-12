@@ -28,6 +28,14 @@ def fetch_original_urls(session, pid, download_config):
     return [u for u in page_urls if u]
 
 
+def fetch_illust_details(session, pid, download_config):
+    details_url = f"https://www.pixiv.net/ajax/illust/{pid}"
+    data = request_json(session, details_url, None, download_config)
+    if data.get("error"):
+        raise RuntimeError(f"Illust details error: {data.get('message')}")
+    return data.get("body", {})
+
+
 def normalize_tags(tags):
     return {t.lower() for t in tags}
 
