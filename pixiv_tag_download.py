@@ -2,17 +2,19 @@ from pixiv_download import download_by_tag
 
 
 if __name__ == "__main__":
-    # Example usage:
+    # OR tags: any_tags matches either tag.
     download_by_tag(
-        keyword=["ansy"],
-        dest_dir=r"paste your save path here",
-        phpsessid="paste your PHPSESSID here",
+        keyword=["あのそよ", "ansy","爱素","素爱","そよあの","syan"],
+        dest_dir=r"C:\\Users\\YourName\\Downloads",
+        phpsessid="PASTE_YOUR_PHPSESSID_HERE",
         device_token=None,
-        pages=1,
-        # include_tags=["tag_1", "tag_2"],
-        # any_tags=["tag_3", "tag_4"],
-        # exclude_tags=["tag_5"],
+        pages=9999,
+        any_tags=["あのそよ", "ansy","爱素","素爱","そよあの","syan"],
+        exclude_tags=["AI生成", "AIイラス", "AIイラスト"],
         filter_ai=True,
-        filter_r18=False,
-        max_artworks=3,
+        filter_r18=True,
+        only_r18=False,
+        debug=True,
+        first_download=True,
+        max_artworks=None,
     )
